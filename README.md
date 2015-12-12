@@ -1,4 +1,4 @@
-#Finterest
+#BigFridge
 	
 
 
@@ -6,10 +6,4 @@
 
 
 
-	Tasks at hand:
-
-
-	If search bar empty, populate with a Flickr search of something pretty.
-	When search bar is full, populate with user results
-		If in English, populate user results ? 
-		See how to make it contribute flow-fully and not fit-fully# bigfridge
+	Working on this build out to crowd-source leftover foods for small local communities like neighborhoods.
