@@ -1,0 +1,23 @@
+<div>
+<div><h1>Add a meal!</h1></div>
+	<section ng-controller="AddMealCtrl">
+	<div>
+		Name of meal <input type="text" class="add-form" id="meal-name" ng-model="newMeal.name">
+	</div>
+	<div>
+		Description <input type="text" class="add-form" id="meal-description" ng-model= "newMeal.description">
+	</div>
+	<div>
+		How many servings? <input type="text" class="add-form" id="meal-servings" ng-model="newMeal.servings">
+	</div>
+	<div>
+		Dish return terms <input type="text" class="add-form" id="meal-dish-return" ng-model="newMeal.returnTerms"
+	</div>
+	<div>
+		Any food allergens? <input type="text" class="add-form" id="meal-allergens" ng-model="newMeal.allergens">
+	</div>
+	<div>
+		How long should this dish be in the Big Fridge? <input type="text" class="add-form" id="meal-lifespan" ng-model="newMeal.lifespan">
+	</div>
+	<button class="btn" id="push-meal"<button ng-click="addMeal()">Post meal</button>
+	</section>

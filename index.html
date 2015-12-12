@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Big Fridge</title>
+    <link rel="stylesheet" href="./lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/main.css">
+  </head>
+  <body ng-app="BigFridge" >
+  <script>
+//   window.fbAsyncInit = function() {
+//     FB.init({
+//       appId      : '1715608011994837',
+//       xfbml      : true,
+//       version    : 'v2.5',
+//       status     : true
+//     });
+//   };
+
+//   (function(d, s, id){
+//      var js, fjs = d.getElementsByTagName(s)[0];
+//      if (d.getElementById(id)) {return;}
+//      js = d.createElement(s); js.id = id;
+//      js.src = "//connect.facebook.net/en_US/sdk.js";
+//      fjs.parentNode.insertBefore(js, fjs);
+//    }(document, 'script', 'facebook-jssdk'));
+
+
+// </script>
+
+
+
+    <!-- Navigation -->
+    <nav id="navigationBar" class="navbar navbar-default" ng-controller="AuthCtrl" >
+    <div id="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <a class="navbar-brand" href="/#/">Big Fridge</a>
+
+        <div class="navbar-form navbar-left" role="search">
+
+          <div class="form-group">
+            <div class="nav navbar-nav navbar-right input-group">
+                
+                
+            </div>
+          </div>
+        </div>
+
+        <a class="nav navbar-nav navbar-brand"></a>
+        
+        <div class="navbar-right navbar-form">
+            
+        </div>
+        
+
+
+      </div><!-- /.container-fluid -->
+    </nav>
+
+<div ng-view></div>
+
+    <!-- JAVASCRIPT LAND -->
+    <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bower_components/angular/angular.min.js"></script>
+    <!-- // <script src="lib/bower_components/angular-bootstrap/ui-bootstrap.js"></script> -->
+    <script src="lib/bower_components/angular-route/angular-route.js"></script>
+    <script src="lib/bower_components/firebase/firebase.js"></script>
+    <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="lib/bower_components/angular-filter/dist/angular-filter.min.js"></script>
+
+    <script src="javascripts/app.js"></script>
+    <script src="javascripts/factories/auth-data.js"></script> 
+    <script src="javascripts/auth.js"></script> 
+    <script src="javascripts/controllers/main.js"></script> 
+
+
+
+
+
+    <script src="javascripts/controllers/add-meals.js"></script> 
+    <!-- // <script src="javascripts/factories/pictures-factory.js"></script>  -->
+    <!-- // <script src="javascripts/factories/search-factory.js"></script>  -->
+    <!-- // <script src="javascripts/controllers/main.js"></script>  -->
+    <!-- // <script src="javascripts/auth.js"></script>  -->
+    <!-- // <script src="javascripts/controllers/search.js"></script>  -->
+    <!-- // <script src="javascripts/controllers/user-boards-controller.js"></script>  -->
+
+
+
+  </body>
+</html>
