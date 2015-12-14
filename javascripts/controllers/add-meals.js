@@ -1,8 +1,8 @@
 app.controller("AddMealCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "auth-data", function($scope, $firebaseArray,   $firebaseObject, auth){
 
 	var ref = new Firebase("https://bigfridge.firebaseio.com/meals");
-  $scope.meals = $firebaseObject(ref);
-	$scope.newMeal = { name: "", description: "", servings: "", returnTerms: "", allergens: "", lifespan: "", createdby:"", createdbyName:"" };
+  $scope.meals = $firebaseArray(ref);
+	$scope.newMeal = { name: "", description: "", servings: "", returnTerms: "", allergens: "", lifespan: "", createdby:"", createdbyName:"", reserved:"" };
 
   $scope.addMeal = function() {
     $scope.meals.$add({
