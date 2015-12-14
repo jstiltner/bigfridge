@@ -51,7 +51,7 @@ app.controller("AuthCtrl",
           });
       });
     } else {
-            auth.setUid(authData.uid);
+            auth.setUid(authData.facebook.cachedUserProfile.id);
             auth.setName(authData.facebook.displayName);
 
             // window.location.assign("home.html");

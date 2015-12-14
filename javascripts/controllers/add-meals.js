@@ -14,7 +14,7 @@ app.controller("AddMealCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "a
 			lifespan: $scope.newMeal.lifespan,
 			createdby: auth.getUid(),
 			createdbyName: auth.getName(),
-			reserved: null
+			reserved: false
     });
 	  console.log("newMeal", $scope.newMeal );
 	  // var ref = new Firebase("https://bigfridge.firebaseio.com/meals");
