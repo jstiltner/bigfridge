@@ -1,5 +1,13 @@
 <a href="/#/add"><button id="add-meal" class = "btn"> Add meal </button></a>
 
+<div id="notification-box">
+  <ul ng-repeat="notification in notifications ">
+	  <div>Thanks! Your meal, "{{notification.name}}" has been reserved!
+	  <!-- Insert Button to confirm here! -->
+	  </div>
+</div>
+
+
 <div class="meal">
   <ul ng-repeat="meal in meals | filter : {reserved : false} : true">
 	  <div>Name: {{ meal.name }}</div>
