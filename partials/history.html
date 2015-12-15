@@ -1,0 +1,14 @@
+<h1>History</h1>
+<div>
+<ul ng-repeat="notification in notifications | filter : {inHistory : true} : true">
+	  <div>Name: {{ notification.name }}</div>
+		<div>Description: {{ notification.description }}</div>
+		<div>Servings: {{ notification.servings }}</div>
+		<div>Dish Return Terms: {{ notification.returnTerms }}</div>
+		<div>Allergens: {{ notification.allergens }}</div>
+ 		<div>Good until: {{ notification.lifespan }}</div> 
+ 		<div>Donated by: {{ notification.createdbyName }}</div>
+		<div><input type="textarea" class="add-form" id="review" ng-model="newReview">
+	
+		<button class="btn button" ng-click="reviewTransaction(newReview)">Post Review</button>
+	  </ul>

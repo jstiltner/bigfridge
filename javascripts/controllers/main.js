@@ -3,48 +3,46 @@ app.controller("MainCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "auth
   var mealRef = new Firebase("https://bigfridge.firebaseio.com/meals");
   $scope.meals = $firebaseArray(mealRef);
 
- var myNotificationRef = new Firebase("https://bigfridge.firebaseio.com/users/" + authData.getUid() + "/notifications/unconfirmed/");
+  var myNotificationRef = new Firebase("https://bigfridge.firebaseio.com/users/" + authData.getUid() + "/notifications/");
   $scope.notifications = $firebaseArray(myNotificationRef);
-
-
-
 
   $scope.reserveMeal = function (meal){
     // switches the value at the key "reserved" 
-    meal.reserved = true
+    meal.reserved = true;
+    meal.reservedby = authData.getName();
+    meal.reservationConf = false;
     // updates the database with the reserved status.    
     $scope.meals.$save(meal);
 
     donorUser = meal.createdby;
-    var notificationRef = new Firebase("https://bigfridge.firebaseio.com/users/" + donorUser + "/notifications/unconfirmed/");
-    
-    $scope.notifications = $firebaseArray(notificationRef);
-    $scope.notifications.$add(meal)
-    // console.log("scope.notifications", $scope.notifications );
+    $scope.notifications.$add(meal);
   };  // reserve meal function closes
 
-
-    //sandbox
-    var myNotificationRef = new Firebase("https://bigfridge.firebaseio.com/users/" + authData.getUid() + "/notifications/unconfirmed/");
-
-    var alertsRef = $firebaseArray(myNotificationRef);
-
+  $scope.confirmReservation = function (notification){
+    notification.reservationConf = true;
+    $scope.notifications.$save(notification);
+  };
     
-     
-      
-     
-      console.log("$scope.alert", $scope.notifications );
-    
+  $scope.cancelReservation = function (notification){
+    notification.reserved = false;
+    notification.reservationConf = false;
+    notification.reservedby="";
+    console.log(notification );
+    $scope.meals.$add(notification);
 
+    $scope.notifications.$remove(notification);
+  };
 
-    // list.$add({ hello: "world" });
-
-
+  $scope.moveToHistory = function (notification){
+    notification.inHistory = true;
+    notification.reviewed = false;
+    $scope.notifications.$save(notification);
+    // $(this).parent().remove();
+  };
 
 }]);
     
 
-      // window.alert("your donation of", $scope.alert.name )
       
 
 
@@ -56,7 +54,6 @@ app.controller("MainCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "auth
 
 
 
-    // logs { event: "child_added", key: "<new _id>", prevId: "<prev_id>" }
 
 
 

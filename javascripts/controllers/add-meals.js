@@ -14,38 +14,11 @@ app.controller("AddMealCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "a
 			lifespan: $scope.newMeal.lifespan,
 			createdby: auth.getUid(),
 			createdbyName: auth.getName(),
-			reserved: false
+			reserved: false,
+      inHistory: false
     });
-	  console.log("newMeal", $scope.newMeal );
-	  // var ref = new Firebase("https://bigfridge.firebaseio.com/meals");
-	  // ref.push($scope.newMeal)  
-	  console.log("firebase meal push code ran" );
+
   };
-
-
-
-
-  // create a synchronized array
-  // $scope.meals = $firebaseArray(ref);
-  // $scope.meals.name = 
-  // $scope.meals.description =
-  // $scope.meals.servings =
-  // $scope.meals.returnTerms = 
-  // $scope.meals.allergens = 
-  // $scope.meals.lifespan = 
-
-
-
-  // // add new items to the array
-  // // the meal is automatically added to our Firebase database!
-  // $scope.addMeal = function() {
-  //   $scope.messages.$add({
-  //     text: $scope.newMessageText
-  //   });
-  // };
-
-
-
 
 }]);
 
