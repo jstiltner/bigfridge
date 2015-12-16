@@ -10,5 +10,5 @@
  		<div>Donated by: {{ notification.createdbyName }}</div>
 		<div><input type="textarea" class="add-form" id="review" ng-model="newReview">
 	
-		<button class="btn button" ng-click="reviewTransaction(newReview)">Post Review</button>
+		<button class="btn button" ng-click="reviewTransaction($scope.newReview)">Post Review</button>
 	  </ul>

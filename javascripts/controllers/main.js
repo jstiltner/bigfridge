@@ -10,6 +10,7 @@ app.controller("MainCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "auth
     // switches the value at the key "reserved" 
     meal.reserved = true;
     meal.reservedby = authData.getName();
+    meal.reservedbyUid = authData.getUid();
     meal.reservationConf = false;
     // updates the database with the reserved status.    
     $scope.meals.$save(meal);
@@ -20,7 +21,16 @@ app.controller("MainCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "auth
 
   $scope.confirmReservation = function (notification){
     notification.reservationConf = true;
-    $scope.notifications.$save(notification);
+    notification.readytoEat = true;
+    // $scope.notifications.$save(notification);
+    //send notification to the Eater when Cook confirms Reservation
+    otherParty = notification.reservedbyUid;
+    var sendRef = new Firebase("http://bigfridge.firebaseio.com/users/" + otherParty +"/notifications");
+    $scope.othersnotifications = $firebaseArray(sendRef);
+    $scope.othersnotifications.$save(notification);
+
+
+    console.log("otherParty", otherParty );
   };
     
   $scope.cancelReservation = function (notification){
@@ -28,7 +38,7 @@ app.controller("MainCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "auth
     notification.reservationConf = false;
     notification.reservedby="";
     console.log(notification );
-    $scope.meals.$add(notification);
+    $scope.meals.$save(notification);
 
     $scope.notifications.$remove(notification);
   };

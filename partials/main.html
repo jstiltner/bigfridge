@@ -3,6 +3,12 @@
 <a href="/#/history"><button id="history" class = "btn"> History </button></a>
 
 <div id="notification-box">
+  <ul ng-repeat="notification in notifications | filter : {readytoEat : true, inHistory : false}">
+	  <div>{{notification.createdbyName}} is ready for you to pick up {{notification.name}}. Please click "complete" after the meet-up.
+		<button class="btn button" ng-click="moveToHistory(notification)">Complete</button>
+		<button class="btn button" ng-click="cancelReservation(notification)">Flaked</button>
+	  </div></ul>
+
   <ul ng-repeat="notification in notifications | filter : {reservationConf : true, inHistory : false}">
 	  <div>You have confirmed {{notification.reservedby}}'s reservation for {{notification.name}}. Please click "complete" after the meet-up.
 		<button class="btn button" ng-click="moveToHistory(notification)">Complete</button>

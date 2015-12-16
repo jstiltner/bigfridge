@@ -7,7 +7,10 @@ app.controller("HistoryCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "a
   $scope.notifications = $firebaseArray(myNotificationRef);
 
 	$scope.reviewTransaction = function (newReview){
-	console.log($scope.newRevew);
+		// grab text in review field
+		// add it to firebase on the other user 
+		// add it to firebase on the meal
+		
 
 	
 	
