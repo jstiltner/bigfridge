@@ -1,23 +1,25 @@
-<div>
-<div><h1>Add a meal!</h1></div>
+<section id="add-form-box">
+<div class="add-meal-title"><ul><h3>Add a meal to the Big Fridge</h3></div></ul>
 	<section ng-controller="AddMealCtrl">
 	<div>
-		Name of meal <input type="text" class="add-form" id="meal-name" ng-model="newMeal.name">
+		<ul><input type="text" class="add-form" id="meal-name" placeholder="Name of the dish" ng-model="newMeal.name" size="40">
 	</div>
 	<div>
-		Description <input type="text" class="add-form" id="meal-description" ng-model= "newMeal.description">
+		<ul><input type="text" class="add-form" id="meal-description" placeholder="Brief description" ng-model= "newMeal.description" size="40">
 	</div>
 	<div>
-		How many servings? <input type="text" class="add-form" id="meal-servings" ng-model="newMeal.servings">
+		<ul><input type="text" class="add-form" id="meal-servings" placeholder="How many servings?" ng-model="newMeal.servings" size="40">
 	</div>
 	<div>
-		Dish return terms <input type="text" class="add-form" id="meal-dish-return" ng-model="newMeal.returnTerms"
+		<ul><input type="text" class="add-form" id="meal-dish-return" placeholder="Container return terms" ng-model="newMeal.returnTerms" size="40">
 	</div>
 	<div>
-		Any food allergens? <input type="text" class="add-form" id="meal-allergens" ng-model="newMeal.allergens">
+		<ul><input type="text" class="add-form" id="meal-allergens" placeholder="Any allergens?" ng-model="newMeal.allergens" size="40">
 	</div>
 	<div>
-		How long should this dish be in the Big Fridge? <input type="text" class="add-form" id="meal-lifespan" ng-model="newMeal.lifespan">
+		<ul><input type="text" class="add-form" id="meal-lifespan" placeholder="Expy date" ng-model="newMeal.lifespan" size="40">
 	</div>
-	<button class="btn" id="push-meal"<button ng-click="addMeal()">Post meal</button>
+	<ul><button class="btn btn-warning" id="push-meal"<button ng-click="addMeal()">Post meal</button></ul>
+	<ul><div id="success-box"></div></ul>
+	</section>
 	</section>

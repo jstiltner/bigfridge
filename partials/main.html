@@ -1,39 +1,44 @@
-<a href="/#/add"><button id="add-meal" class = "btn"> Add meal </button></a>
 
-<a href="/#/history"><button id="history" class = "btn"> History </button></a>
 
 <div id="notification-box">
+	<ul><strong>Notifications</strong></ul>
   <ul ng-repeat="notification in notifications | filter : {readytoEat : true, inHistory : false}">
-	  <div>{{notification.createdbyName}} is ready for you to pick up {{notification.name}}. Please click "complete" after the meet-up.
-		<button class="btn button" ng-click="moveToHistory(notification)">Complete</button>
-		<button class="btn button" ng-click="cancelReservation(notification)">Flaked</button>
+	  <div>{{notification.createdbyName}} is ready for you to pick up {{notification.name}}. Please click "complete" after the meet-up.</div>
+		<div class="button-box"><button class="btn button btn-default btn-sm" ng-click="moveToHistory(notification)">Complete</button>
+		<button class="btn button btn-default btn-sm" ng-click="cancelReservation(notification)">Flaked</button>
 	  </div></ul>
 
   <ul ng-repeat="notification in notifications | filter : {reservationConf : true, inHistory : false}">
-	  <div>You have confirmed {{notification.reservedby}}'s reservation for {{notification.name}}. Please click "complete" after the meet-up.
-		<button class="btn button" ng-click="moveToHistory(notification)">Complete</button>
-		<button class="btn button" ng-click="cancelReservation(notification)">Flaked</button>
+	  <div class="message">You have confirmed {{notification.reservedby}}'s reservation for {{notification.name}}. Please click "complete" after the meet-up.</div>
+		<div class="button-box"><button class="btn button btn-default btn-sm" ng-click="moveToHistory(notification)">Complete</button>
+		<button class="btn button btn-default btn-sm" ng-click="cancelReservation(notification)">Flaked</button>
 	  </div></ul>
 
   <ul ng-repeat="notification in notifications | filter : {reservationConf : false} : true">
-	  <div>Thanks! Your meal, "{{notification.name}}", has been reserved by {{notification.reservedby}}!
-		<button class="btn button" ng-click="confirmReservation(notification)">Confirm</button>
-		<button class="btn button" ng-click="cancelReservation(notification)">Decline</button>
+	  <div>Thanks! Your meal, "{{notification.name}}", has been reserved by {{notification.reservedby}}!</div>
+		<div class="button-box"><button class="btn button btn-default btn-sm" ng-click="confirmReservation(notification)">Confirm</button>
+		<button class="btn button btn-default btn-sm" ng-click="cancelReservation(notification)">Decline</button>
 	  </div></ul>
 
 </div>
 
 
-<div class="meal">
+<div class="meals-box">
+  <ul><strong>Here's the contents of your Big Fridge, </strong>updated in real time...</ul>
+  <div id="wrapper">
+  <div id ="columns">
   <ul ng-repeat="meal in meals | filter : {reserved : false} : true">
-	  <div>Name: {{ meal.name }}</div>
-		<div>Description: {{ meal.description }}</div>
-		<div>Servings: {{ meal.servings }}</div>
-		<div>Dish Return Terms: {{ meal.returnTerms }}</div>
-		<div>Allergens: {{ meal.allergens }}</div>
- 		<div>Good until: {{ meal.lifespan }}</div> 
- 		<div>Donated by: {{ meal.createdbyName }}</div>
-		<button class="btn" button ng-click="reserveMeal(meal)">Reserve</button>
-  </ul>
-	</section>
+		  <div class="col-md-3 meal">
+			  <div><strong>{{ meal.name }}</strong></div>
+				<div>{{ meal.description }}</div>
+				<div>{{ meal.servings }}</div>
+				<div>Dish Return terms: {{ meal.returnTerms }}</div>
+				<div>Allergens: {{ meal.allergens }}</div>
+		 		<div>Good until {{ meal.lifespan }}</div> 
+		 		<div>Thanks to {{ meal.createdbyName }}</div>
+				<button class="btn btn-warning" button ng-click="reserveMeal(meal)">Reserve</button>
+	  </div>
+	</ul>
+	</div>
+</div>
 </div>

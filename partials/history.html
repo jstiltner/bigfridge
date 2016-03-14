@@ -1,6 +1,6 @@
-<h1>History</h1>
+<uL><h1>History</h1></uL>
 <div>
-<ul ng-repeat="notification in notifications | filter : {inHistory : true} : true">
+<ul ng-repeat="notification in notifications | filter : {inHistory : true}">
 	  <div>Name: {{ notification.name }}</div>
 		<div>Description: {{ notification.description }}</div>
 		<div>Servings: {{ notification.servings }}</div>
@@ -8,7 +8,7 @@
 		<div>Allergens: {{ notification.allergens }}</div>
  		<div>Good until: {{ notification.lifespan }}</div> 
  		<div>Donated by: {{ notification.createdbyName }}</div>
-		<div><input type="textarea" class="add-form" id="review" ng-model="newReview">
-	
-		<button class="btn button" ng-click="reviewTransaction($scope.newReview)">Post Review</button>
+		<div><textarea rows="4" columns="30" class="add-form" id="review" ng-model="notification.review">
+	</textarea>
+		<button class="btn button btn-success" ng-click="reviewTransaction(notification)">Post Review</button>
 	  </ul>

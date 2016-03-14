@@ -1,4 +1,23 @@
 app.controller("AddMealCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "auth-data", function($scope, $firebaseArray,   $firebaseObject, auth){
+	
+
+
+	// var uploader = new qq.s3.FineUploader({request: {
+ //        endpoint: '{ bigfridgeuserphotos }.s3.amazonaws.com',
+ //        accessKey: '{ AKIAIICSWT42YGCD2SIQ }'
+ //    },
+ //    signature: {
+ //        endpoint: '/s3/signature'
+ //    },
+ //    uploadSuccess: {
+ //        endpoint: '/s3/success'
+ //    },
+ //    iframeSupport: {
+ //        localBlankPagePath: '/success.html'
+ //    }
+ //  });
+	
+
 
 	var ref = new Firebase("https://bigfridge.firebaseio.com/meals");
   $scope.meals = $firebaseArray(ref);
@@ -17,7 +36,14 @@ app.controller("AddMealCtrl", ["$scope", "$firebaseArray", "$firebaseObject", "a
 			reserved: false,
       inHistory: false
     });
-
+    $scope.newMeal.name = "";
+    $scope.newMeal.description="";
+    $scope.newMeal.servings="";
+    $scope.newMeal.returnTerms="";
+		$scope.newMeal.allergens="";
+		$scope.newMeal.lifespan="";
+		$("#success-box").html("<strong>Meal Added!</strong>")
+		
   };
 
 }]);

@@ -3,9 +3,10 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Big Fridge</title>
+    <title>Big Fridge: a leftover management system</title>
     <link rel="stylesheet" href="./lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Sigmar+One"> 
   </head>
   <body ng-app="BigFridge" >
   <script>
@@ -32,25 +33,29 @@
 
 
     <!-- Navigation -->
-    <nav id="navigationBar" class="navbar navbar-default" ng-controller="AuthCtrl">
+    <nav id="navigationBar" class="navbar navbar-inverse" ng-controller="AuthCtrl">
     <div id="container-fluid">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-        <a class="navbar-brand" href="/#/">Big Fridge</a>
+        <a class="navbar-brand brandname" href="/#/">Big Fridge</a>
 
         <div class="navbar-form navbar-left" role="search">
-
-          <div class="form-group">
-            <div class="nav navbar-nav navbar-right input-group">
-                
-                
-            </div>
-          </div>
         </div>
 
+          <div class="form-group">
+            <div class="nav navbar-form navbar-right">
+            <!--      <li><a href="#/add">Add Meal</a></li> -->
+            <a href="#/add"><button type="button" class="btn btn-warning navbar-btn add-meal-button">Add Meal</button></a>     
+            <!-- <div class="nav navbar-form navbar-right"> -->
+            <!--      <li><a href="#/add">Add Meal</a></li> -->
+            <a href="#/history"><button type="button" class="btn btn-success navbar-btn">History</button></a>     
+            <!-- </div> -->
+            </div>
+          </div>
+<!-- 
         <a class="nav navbar-nav navbar-brand"></a>
         
-        <div class="navbar-right navbar-form">
+        <div class="navbar-right navbar-form"> -->
             
         </div>
         

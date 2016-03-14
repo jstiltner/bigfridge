@@ -1,3 +1,4 @@
+
 var app = angular.module("BigFridge", ["firebase", "ngRoute", "angular.filter", ]);
   
 app.config(['$routeProvider',
