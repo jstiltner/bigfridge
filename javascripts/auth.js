@@ -1,21 +1,21 @@
-app.controller("AuthCtrl", 
+app.controller("AuthCtrl",
 
   ["$q", "$http", "$scope","$firebaseAuth", "$firebaseArray", "auth-data", "$location", function($q, $http, $scope, $firebaseAuth, $firebaseArray, auth, $location) {
   var ref = new Firebase("https://bigfridge.firebaseio.com/");
- 
+
     var authData = ref.getAuth();
     console.log("authdata", authData );
-      
+
       // If no authData exists
-      if (authData === null){ 
-        
+      if (authData === null){
+
         // Getting auth from Facebook
         ref.authWithOAuthPopup("facebook", function(error, authData) {
-      
+
           // Setting uid to newuid
           auth.setUid(authData.uid);
-          
-          // Declaring variables 
+
+          // Declaring variables
           var usersref = ref.child("users");
           var userExists = false;
           var userName = authData.facebook.displayName;
@@ -40,14 +40,14 @@ app.controller("AuthCtrl",
                     console.log("push to firebase attempted");
                     usersref.child(userId).set({
 
-                    
+
                         "user_name":userName,
                     "user_image": userImage
                     });
                     $('.show').remove();
                     console.log("success");
                     // $('#myModal').modal('show');
-                }   
+                }
           });
       });
     } else {
@@ -59,7 +59,7 @@ app.controller("AuthCtrl",
             console.log("Already logged in as ", auth.getUid() );
             // $('.show').remove();
 
-        } 
+        }
 
-  
+
 }]);

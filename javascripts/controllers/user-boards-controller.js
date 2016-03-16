@@ -9,6 +9,7 @@ app.controller("BoardDetailsCtrl", ["$scope", "$routeParams", "auth-data", "$fir
   var userRef = new Firebase("https://pinterestfinterest.firebaseio.com/user_database/" + $scope.userId);
 
   $scope.user_pins = $firebaseArray(userRef);
+
   // Figure out a way to only show those pins connected to a user_pins
 
   $scope.matched = [];

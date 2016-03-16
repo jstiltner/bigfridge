@@ -1,6 +1,6 @@
 
 var app = angular.module("BigFridge", ["firebase", "ngRoute", "angular.filter", ]);
-  
+
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
@@ -20,6 +20,5 @@ app.config(['$routeProvider',
         templateUrl: 'partials/meal-details.html',
         controller: 'MealDetailsCtrl'
       })
-      // .when()
       .otherwise("/");
 }]);
