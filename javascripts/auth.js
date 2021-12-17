@@ -49,6 +49,7 @@ app.controller("AuthCtrl",
           });
       });
     } else {
+            console.log("UserID not found");
             auth.setUid(authData.facebook.cachedUserProfile.id);
             auth.setName(authData.facebook.displayName);
 
